@@ -31,4 +31,29 @@ public class TestController2 {
     public String showMacaroni() {
         return "Great taste!";
     }
+
+    @GetMapping("show-addition/{number1}/{number2}")
+    public int showAddition(@PathVariable int number1, @PathVariable int number2) {
+        return number1 + number2;
+    }
+
+    @GetMapping("show-operation/{number1}")
+    public String showOperation(@PathVariable int number1) {
+        if (number1 % 2 == 0) {
+            return "Even Number";
+        } else
+            return "Odd Number";
+    }
+
+    @GetMapping("show-name/{name}")
+    public String showName(@PathVariable String name) {
+        try {
+            return "Hey"+" "+name;
+        } catch (NumberFormatException e) {
+            return "Not a string";
+        }
+    }
+
 }
+
+
