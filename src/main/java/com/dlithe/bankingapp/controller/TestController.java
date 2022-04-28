@@ -13,8 +13,9 @@ public class TestController {
     private TestService testService;
 
     @GetMapping("show-details/{product}")
-    public String showProduct(@PathVariable String product){
-        String result=testService.fetchDetails(product);
-        return result;
+    public String showProduct(@PathVariable String product) {
+        return testService.fetchDetails(product);
     }
+
+
 }
