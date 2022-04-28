@@ -14,9 +14,10 @@ public class TestController {
     public String showProduct(@PathVariable String product) {
         return testService.fetchDetails(product);
     }
- @PostMapping("register-patient")
-    public String registerNewPatient(@RequestBody PatientDetailRequest patientDetailRequest){
+
+    @PostMapping("register-patient")
+    public String registerNewPatient(@RequestBody PatientDetailRequest patientDetailRequest) {
         return testService.registerPatient(patientDetailRequest);
- }
+    }
 
 }
