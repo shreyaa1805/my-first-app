@@ -1,5 +1,6 @@
 package com.dlithe.bankingapp.serviceImpl;
 
+import com.dlithe.bankingapp.dto.PatientDetailRequest;
 import com.dlithe.bankingapp.service.TestService;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,12 @@ public class TestServiceImpl implements TestService {
             default:
                 return "Not a product";
         }
+    }
+
+    @Override
+    public String registerPatient(PatientDetailRequest patientDetailRequest) {
+        System.out.println(patientDetailRequest);
+        return null;
     }
 
 
