@@ -1,12 +1,22 @@
 package com.dlithe.bankingapp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.dlithe.bankingapp.dto.PatientDetailRequest;
+import com.dlithe.bankingapp.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestController {
-    @GetMapping("test")
-    public String  firstMethod(){
-        return "Hey, Shreya!";
+    @Autowired
+    private TestService testService;
+
+    @GetMapping("show-details/{product}")
+    public String showProduct(@PathVariable String product) {
+        return testService.fetchDetails(product);
     }
+ @PostMapping("register-patient")
+    public String registerNewPatient(@RequestBody PatientDetailRequest patientDetailRequest){
+        return testService.registerPatient(patientDetailRequest);
+ }
+
 }
