@@ -48,7 +48,7 @@ public class TestController2 {
     @GetMapping("show-name/{name}")
     public String showName(@PathVariable String name) {
         try {
-            return "Hey"+" "+name;
+            return "Hey" + " " + name;
         } catch (NumberFormatException e) {
             return "Not a string";
         }
