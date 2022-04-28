@@ -6,4 +6,5 @@ import org.springframework.stereotype.Component;
 @Component
 public interface PatientService {
     String registerPerson(PatientsDetailRequest patientsDetailRequest);
+    PatientsDetailRequest getUserDetails(int id);
 }

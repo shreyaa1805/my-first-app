@@ -7,6 +7,8 @@ import com.dlithe.bankingapp.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class PatientsServiceImpl implements PatientService {
@@ -20,5 +22,14 @@ public class PatientsServiceImpl implements PatientService {
         patients.setAge(patientsDetailRequest.getAge());
         patientsDAO.save(patients);
         return "Patient registered successfully";
+    }
+
+    @Override
+    public PatientsDetailRequest getUserDetails(int id) {
+        Optional<Patients> patient = patientsDAO.findById(id);
+        PatientsDetailRequest patientsDetailRequest=new PatientsDetailRequest();
+        patientsDetailRequest.setName(patient.get().getName());
+        patientsDetailRequest.setAge(patient.get().getAge());
+        return patientsDetailRequest;
     }
 }
