@@ -5,11 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
-public class PatientsDetailRequest {
+public class PatientsDetailResponse {
     private String name;
     private int age;
+
+    private List<ReviewResponse> review;
 }
