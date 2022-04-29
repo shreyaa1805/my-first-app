@@ -18,9 +18,10 @@ public class PatientsServiceImpl implements PatientService {
 
     @Autowired
     private PatientsDAO patientsDAO;
+
     @Override
     public String registerPerson(PatientsDetailResponse patientsDetailResponse) {
-        Patients patients=new Patients();
+        Patients patients = new Patients();
         patients.setName(patientsDetailResponse.getName());
         patients.setAge(patientsDetailResponse.getAge());
         patientsDAO.save(patients);
@@ -29,11 +30,11 @@ public class PatientsServiceImpl implements PatientService {
 
     @Override
     public PatientsDetailResponse getUserDetails(int id) {
-        ReviewResponse reviewResponse=new ReviewResponse();
-        List<ReviewResponse> reviewResponseList=new ArrayList<>();
+        ReviewResponse reviewResponse = new ReviewResponse();
+        List<ReviewResponse> reviewResponseList = new ArrayList<>();
 
         Optional<Patients> patient = patientsDAO.findById(id);
-        PatientsDetailResponse patientsDetailResponse =new PatientsDetailResponse();
+        PatientsDetailResponse patientsDetailResponse = new PatientsDetailResponse();
 
         patientsDetailResponse.setName(patient.get().getName());
         patientsDetailResponse.setAge(patient.get().getAge());
@@ -43,7 +44,7 @@ public class PatientsServiceImpl implements PatientService {
         reviewResponse.setRating("5");
         reviewResponseList.add(reviewResponse);
 
-        ReviewResponse reviewResponse1=new ReviewResponse();
+        ReviewResponse reviewResponse1 = new ReviewResponse();
         reviewResponse1.setReviewerName("Riya");
         reviewResponse1.setReview("Good hospitality");
         reviewResponse1.setRating("4");
